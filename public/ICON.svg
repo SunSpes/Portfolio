@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 998.25 981.51">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Dégradé_sans_nom_18);
+      }
+    </style>
+    <linearGradient id="Dégradé_sans_nom_18" data-name="Dégradé sans nom 18" x1="233.33" y1="906.34" x2="774.1" y2="59.19" gradientUnits="userSpaceOnUse">
+      <stop offset=".28" stop-color="#ff0096"/>
+      <stop offset="1" stop-color="#da72ff"/>
+    </linearGradient>
+  </defs>
+  <polygon class="cls-1" points="413.24 642.72 384.07 981.51 613.97 981.51 584.89 645.11 877.99 843.4 998.25 636.68 686.68 490.68 998.14 345.29 877.79 140.7 584.32 336.09 613.86 0 384.27 0 413.88 338.83 117.56 140.72 0 345.35 308.32 490.72 .03 636.11 117.58 843.48 413.24 642.72"/>
+</svg>
