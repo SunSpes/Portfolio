@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { useTheme } from './useTheme'
 import { useNavigate, useLocation, Routes, Route } from 'react-router-dom'
 import Home from './home.jsx'
 import Montage from './montage.jsx'
 import MotionDesign from './motiondesign.jsx'
 
 function Header() {
+  const { theme, toggleTheme } = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
@@ -16,12 +18,14 @@ function Header() {
   }
 
   return (
-    <div className="z-50 px-6 md:px-12 py-6 md:py-8 text-white font-bricolage font-semibold flex flex-row justify-center items-center gap-4 relative">
+    <div className={`${isHome ? 'bg-transparent' : 'bg-white dark:bg-stone-900'} 
+    z-50 px-6 md:px-12 py-6 transition-colors duration-300 ease-in-out md:py-8 text-white font-bricolage font-semibold flex flex-row justify-center items-center gap-4 relative`}
+    >
       
       {!isHome && (
         <button
           onClick={() => navigate('/')}
-          className="absolute text-black left-6 md:left-12 flex items-center md:text-gray-200 md:hover:text-stone-900 transition-colors duration-300 text-sm md:text-xl"
+          className="absolute text-black left-6 md:left-12 flex items-center md:text-gray-200 md:dark:text-gray-500 md:hover:text-stone-900 dark:hover:text-gray-100 transition-colors duration-300 text-sm md:text-xl"
         >
           RETOUR / BACK
         </button>
@@ -30,16 +34,31 @@ function Header() {
       <section className="hidden md:flex text-transparent font-black text-2xl flex-row gap-10">
         <button
           onClick={() => goTo('/montage')}
-          className={`${isHome ? 'text-white drop-shadow-lg' : 'text-gray-200'}  hover:text-pink-400 py-1 px-8 transition-all duration-300 ease-in-out hover:scale-110`}
+          className={`${isHome ? 'text-white drop-shadow-lg' : 'text-gray-200'} hover:text-pink-400 py-1 px-8 transition-all duration-300 ease-in-out hover:scale-110`}
         >
           MONTAGE
         </button>
         <button
           onClick={() => goTo('/motion-design')}
-          className={`${isHome ? 'text-white drop-shadow-lg' : 'text-gray-200'}  hover:text-pink-400 py-1 px-8 transition-all duration-400 ease-in-out hover:scale-110`}
+          className={`${isHome ? 'text-white drop-shadow-lg' : 'text-gray-200'} hover:text-pink-400 py-1 px-8 transition-all duration-400 ease-in-out hover:scale-110`}
         >
           MOTION DESIGN
         </button>
+        <button
+  onClick={toggleTheme}
+  aria-label="Changer de thème"
+  className={`absolute right-6 md:right-12 flex h-8 scale-75 w-16 items-center rounded-full p-1 transition-colors duration-300 ${
+    theme === "light" ? "bg-stone-700" : "bg-gray-300"
+  }`}
+>
+  <div
+    className={`flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-md transition-transform duration-300 ${
+      theme === "light" ? "translate-x-8" : "translate-x-0"
+    }`}
+  >
+    {theme === "light" ? "🌙" : "☀️"}
+  </div>
+</button>
       </section>
 
       {/* Bouton burger (mobile uniquement) */}

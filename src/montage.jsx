@@ -48,20 +48,21 @@ const projects = [
 ]
 
 const tagColors = {
-  Gaming: 'bg-blue-100 text-blue-600',
-  Concept: 'bg-purple-100 text-purple-600',
-  Storytelling: 'bg-orange-100 text-orange-600',
-  '3D': 'bg-green-100 text-green-600',
-  Motion: 'bg-pink-100 text-pink-600',
+  Gaming: 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300',
+  Concept: 'bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300',
+  Storytelling: 'bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-300',
+  '3D': 'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300',
+  Motion: 'bg-pink-100 dark:bg-pink-900 text-pink-600 dark:text-pink-300',
 }
 
-const getTagColor = (tag) => tagColors[tag] || 'bg-gray-100 text-gray-600'
+const getTagColor = (tag) => tagColors[tag] || 'bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-300'
 
 function Montage() {
   const [selectedVideo, setSelectedVideo] = useState(null)
 
   return (
-    <div className="px-6 bg-white text-black font-inter sm:grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-0">
+    <div className="bg-white transition-colors duration-300 ease-in-out h-screen overflow-y-auto scrollbar-hide dark:bg-stone-900">
+    <div className="px-6 pt-4 text-black dark:text-gray-200 font-inter sm:grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-0">
       {/* Référencement SEO */}
       <Helmet>
         <title>Montage Vidéo — Sunspes Studio</title>
@@ -84,7 +85,7 @@ function Montage() {
                 return (
                   <span
                     key={i}
-                    className={`${getTagColor(cleanTag)} text-xs font-semibold px-3 py-1 rounded-md`}
+                    className={`${getTagColor(cleanTag)} transition-colors duration-300 text-xs font-semibold px-3 py-1 rounded-md`}
                   >
                     {cleanTag}
                   </span>
@@ -124,6 +125,8 @@ function Montage() {
           </div>
         </div>
       )}
+    </div>
+
     </div>
   )
 }
