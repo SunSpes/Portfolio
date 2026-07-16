@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import bg from './assets/projet/test.avif'
 import alucard from './assets/projet/concept.jpg'
 import machli from './assets/projet/machli.jpg'
@@ -60,6 +61,13 @@ function Montage() {
 
   return (
     <div className="px-6 bg-white text-black font-inter sm:grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-0">
+      {/* Référencement SEO */}
+      <Helmet>
+        <title>Montage Vidéo — Sunspes Studio</title>
+        <meta name="description" content="Portfolio montage vidéo de Sunspes : storytelling, gaming, projets créatifs. Motion designer basé en France." />
+        <link rel="canonical" href="https://sunspes.fr/montage/" />
+      </Helmet>
+      {/* Contenu principal */}
       {projects.map((project) => (
         <div key={project.id} className="md:hover:scale-105 md:hover:drop-shadow-lg transition-all duration-300 ease-in-out">
           <div

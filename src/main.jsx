@@ -1,15 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import './index.css'
 import Header from './Header.jsx'
-import Card from './Card.jsx'
-import Home from './home.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
         <Header />
-    </BrowserRouter>
+      </BrowserRouter>
+    </HelmetProvider>
   </StrictMode>,
 )

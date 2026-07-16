@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import bg from './assets/bgnotext.mp4'
 import logo from './assets/LOGO.png'
+import { Helmet } from 'react-helmet-async'
 
 
 
@@ -8,6 +9,14 @@ import logo from './assets/LOGO.png'
 function App() {
   return (
     <>
+{/* Référencement SEO */}
+    <Helmet>
+        <title>Sunspes — Motion Designer & Studio Créatif en France</title>
+        <meta name="description" content="Sunspes, motion designer freelance basé en France. Découvrez mes projets de montage, motion design." />
+        <link rel="canonical" href="https://sunspes.fr/" />
+      </Helmet>
+
+{/* Contenu principal */}
       <div className="bg-stone-900 overflow-hidden  md:bg-transparent flex items-center justify-center h-screen w-screen">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={bg}/>
