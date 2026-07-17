@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
 import bg from './assets/projet/test.avif'
-import fondmontage from './assets/bg/fondmontage.mp4'
 import alucard from './assets/projet/concept.jpg'
 import machli from './assets/projet/machli.jpg'
 import requin from './assets/projet/requin.jpg'
@@ -63,12 +61,12 @@ function Montage() {
   return (
     <div className="bg-white transition-colors duration-300 ease-in-out h-screen overflow-y-auto scrollbar-hide dark:bg-stone-900">
     <div className="px-6 pt-4 text-black dark:text-gray-200 font-inter sm:grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-0">
-      {/* Référencement SEO */}
+      {/* Référencement SEO
       <Helmet>
         <title>Montage Vidéo — SunSpes Studio</title>
         <meta name="description" content="Projets de montage vidéo du studio : storytelling, gaming, projets créatifs. Studio basé en France." />
         <link rel="canonical" href="https://sunspes.fr/montage/" />
-      </Helmet>
+      </Helmet> */}
 
       {/* Contenu principal */}
       {projects.map((project) => (
