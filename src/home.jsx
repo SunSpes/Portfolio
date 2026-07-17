@@ -11,8 +11,8 @@ function App() {
     <>
 {/* Référencement SEO */}
     <Helmet>
-        <title>Sunspes studio</title>
-        <meta name="description" content="Sunspes, motion designer freelance basé en France. Découvrez mes projets de montage, motion design." />
+        <title>SunSpes Studio</title>
+        <meta name="description" content="SunSpes, studio de motion design basé en France. Découvrez nos projets de montage et motion design." />
         <link rel="canonical" href="https://sunspes.fr/" />
       </Helmet>
 

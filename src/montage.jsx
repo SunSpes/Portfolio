@@ -65,8 +65,8 @@ function Montage() {
     <div className="px-6 pt-4 text-black dark:text-gray-200 font-inter sm:grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-0">
       {/* Référencement SEO */}
       <Helmet>
-        <title>Montage Vidéo — Sunspes Studio</title>
-        <meta name="description" content="Portfolio montage vidéo de Sunspes : storytelling, gaming, projets créatifs. Motion designer basé en France." />
+        <title>Montage Vidéo — SunSpes Studio</title>
+        <meta name="description" content="Projets de montage vidéo du studio : storytelling, gaming, projets créatifs. Studio basé en France." />
         <link rel="canonical" href="https://sunspes.fr/montage/" />
       </Helmet>
 
