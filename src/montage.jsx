@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import bg from './assets/projet/test.avif'
-import alucard from './assets/projet/concept.jpg'
-import machli from './assets/projet/machli.jpg'
-import requin from './assets/projet/requin.jpg'
-import kqly from './assets/projet/Kqly.jpg'
-import wingman from './assets/projet/wingman.jpg'
+import bg from './assets/montage/test.avif'
+import alucard from './assets/montage/concept.jpg'
+import machli from './assets/montage/machli.jpg'
+import requin from './assets/montage/requin.jpg'
+import kqly from './assets/montage/Kqly.jpg'
+import wingman from './assets/montage/wingman.jpg'
 
 const projects = [
   {
@@ -59,8 +59,11 @@ function Montage() {
   const [selectedVideo, setSelectedVideo] = useState(null)
 
   return (
-    <div className="bg-white transition-colors duration-300 ease-in-out h-screen overflow-y-auto scrollbar-hide dark:bg-stone-900">
-    <div className="px-6 pt-4 text-black dark:text-gray-200 font-inter sm:grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-0">
+    <div className="bg-stone-50 transition-colors px-8 md:px-14 duration-300 ease-in-out dark:bg-stone-950">
+      <section className="md:pt-40 mb-8 ">
+        <p className="md:text-8xl text-6xl tracking-tight font-bold text-black dark:text-white">Montage</p>
+      </section>
+    <div className=" pt-4 text-black dark:text-gray-200 font-inter sm:grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-x-4">
       {/* Référencement SEO
       <Helmet>
         <title>Montage Vidéo — SunSpes Studio</title>
@@ -72,7 +75,7 @@ function Montage() {
       {projects.map((project) => (
         <div key={project.id} className="md:hover:scale-105 md:hover:drop-shadow-lg transition-all duration-300 ease-in-out">
           <div
-            className="w-fit flex flex-col items-start px-2 pb-6 cursor-pointer"
+            className="w-fit flex flex-col items-start pb-6 cursor-pointer"
             onClick={() => setSelectedVideo(project.videoUrl)}
           >
             <img src={project.image} alt="Card Image" className="aspect-video rounded-xl object-cover mb-2" />

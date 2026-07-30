@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTheme } from './useTheme'
 import { useNavigate, useLocation, Routes, Route } from 'react-router-dom'
 import Home from './home.jsx'
 import Montage from './montage.jsx'
 import MotionDesign from './motiondesign.jsx'
+import { projects } from './projectsData.js'
 
 function Header() {
   const { theme, toggleTheme } = useTheme()
@@ -12,20 +13,40 @@ function Header() {
   const location = useLocation()
   const isHome = location.pathname === '/'
 
+  const [prevPath, setPrevPath] = useState(location.pathname)
+  const [skipTransition, setSkipTransition] = useState(false)
+
+  // Détecté et appliqué PENDANT le rendu, avant le paint
+  if (location.pathname !== prevPath) {
+    setPrevPath(location.pathname)
+    setSkipTransition(true)
+  }
+
+  // Réactive la transition juste après le paint
+  useEffect(() => {
+    if (skipTransition) {
+      const id = requestAnimationFrame(() => {
+        requestAnimationFrame(() => setSkipTransition(false))
+      })
+      return () => cancelAnimationFrame(id)
+    }
+  }, [skipTransition])
+
   const goTo = (path) => {
     navigate(path)
     setMenuOpen(false)
   }
 
+
   return (
-    <div className={`${isHome ? 'bg-transparent' : 'bg-white dark:bg-stone-900'} 
-    z-50 px-6 md:px-12 py-6 transition-colors duration-300 ease-in-out md:py-8 text-white font-bricolage font-semibold flex flex-row justify-center items-center gap-4 relative`}
+    <div className={`${isHome ? 'bg-transparent' : 'bg-stone-50 dark:bg-stone-950'} 
+    z-50 px-6 md:px-12 py-6 ${skipTransition ? '' : 'transition-colors duration-300 ease-in-out'} md:py-8 text-white font-bricolage font-semibold flex flex-row justify-center items-center gap-4 relative`}
     >
       
       {!isHome && (
         <button
           onClick={() => navigate('/')}
-          className="absolute text-black left-6 md:left-12 flex items-center md:text-gray-200 md:dark:text-gray-500 md:hover:text-stone-900 dark:hover:text-gray-100 transition-colors duration-300 text-sm md:text-xl"
+          className="absolute text-black left-6 md:left-12 flex items-center md:text-gray-200 md:dark:text-gray-500 md:hover:text-stone-900 dark:hover:text-gray-100 transition-colors duration-300 text-sm md:text-xl "
         >
           RETOUR / BACK
         </button>
@@ -33,32 +54,34 @@ function Header() {
 
       <section className="hidden md:flex text-transparent font-black text-2xl flex-row gap-10">
         <button
-          onClick={() => goTo('/montage')}
-          className={`${isHome ? 'text-white drop-shadow-lg' : 'text-gray-200'} hover:text-pink-400 py-1 px-8 transition-all duration-300 ease-in-out hover:scale-110`}
-        >
-          MONTAGE
-        </button>
-        <button
           onClick={() => goTo('/motion-design')}
           className={`${isHome ? 'text-white drop-shadow-lg' : 'text-gray-200'} hover:text-pink-400 py-1 px-8 transition-all duration-400 ease-in-out hover:scale-110`}
         >
           MOTION DESIGN
         </button>
         <button
-  onClick={toggleTheme}
-  aria-label="Changer de thème"
-  className={`absolute right-6 md:right-12 flex h-8 scale-75 w-16 items-center rounded-full p-1 transition-colors duration-300 ${
-    theme === "light" ? "bg-stone-700" : "bg-gray-300"
-  }`}
->
-  <div
-    className={`flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-md transition-transform duration-300 ${
-      theme === "light" ? "translate-x-8" : "translate-x-0"
-    }`}
-  >
-    {theme === "light" ? "🌙" : "☀️"}
-  </div>
-</button>
+          onClick={() => goTo('/montage')}
+          className={`${isHome ? 'text-white drop-shadow-lg' : 'text-gray-200'} hover:text-pink-400 py-1 px-8 transition-all duration-300 ease-in-out hover:scale-110`}
+        >
+          MONTAGE
+        </button>
+        {!isHome && (
+          <button
+            onClick={toggleTheme}
+            aria-label="Changer de thème"
+            className={`absolute right-6 md:right-12 flex h-8 scale-75 w-16 items-center rounded-full p-1 transition-colors duration-300 ${
+              theme === "light" ? "bg-stone-700" : "bg-gray-300"
+            }`}
+          >
+            <div
+              className={`flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-md transition-transform duration-300 ${
+                theme === "light" ? "translate-x-8" : "translate-x-0"
+              }`}
+            >
+              {theme === "light" ? "🌙" : "☀️"}
+            </div>
+          </button>
+        )}
       </section>
 
       {/* Bouton burger (mobile uniquement) */}
@@ -79,17 +102,17 @@ function Header() {
         }`}
       >
         <button
+          className="border bg-clip-text bg-gradient-to-r from-pink-500 to-pink-300 bg-text backdrop-blur-md rounded-full pb-2 pt-1 px-8"
+          onClick={() => goTo('/motion-design')}
+        >          Motion Design
+        </button>
+        <button
           className="border bg-clip-text bg-gradient-to-r from-pink-500 to-pink-300 bg-text backdrop-blur-md rounded-full pb-2 pt-1  px-8"
           onClick={() => goTo('/montage')}
         >
           Montage
         </button>
-        <button
-          className="border bg-clip-text bg-gradient-to-r from-pink-500 to-pink-300 bg-text backdrop-blur-md rounded-full pb-2 pt-1 px-8"
-          onClick={() => goTo('/motion-design')}
-        >
-          Motion Design
-        </button>
+
         <p className="hidden md:block text-white text-lg mt-4">SUNSPES</p>
       </div>
     </div>
@@ -100,6 +123,11 @@ function App() {
   const location = useLocation()
   const isHome = location.pathname === '/'
 
+    // Remonte en haut de page à chaque changement de route
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
   return (
     <div className={isHome ? "h-screen flex flex-col" : "min-h-screen flex flex-col"}>
       <Header />
@@ -108,6 +136,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/montage" element={<Montage />} />
           <Route path="/motion-design" element={<MotionDesign />} />
+          {projects.map((project) => (
+            <Route key={project.id} path={project.path} element={<project.component />} />
+          ))}
         </Routes>
       </div>
     </div>
