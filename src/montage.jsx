@@ -60,8 +60,8 @@ function Montage() {
 
   return (
     <div className="bg-stone-50 transition-colors px-8 md:px-14 duration-300 ease-in-out dark:bg-stone-950">
-      <section className="md:pt-40 mb-8 ">
-        <p className="md:text-8xl text-6xl tracking-tight font-bold text-black dark:text-white">Montage</p>
+      <section className=" mb-8 md:mb-12 ">
+        <p className="md:text-[16rem] text-6xl tracking-tight font-bold text-black dark:text-white">Montage</p>
       </section>
     <div className=" pt-4 text-black dark:text-gray-200 font-inter sm:grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-x-4">
       {/* Référencement SEO

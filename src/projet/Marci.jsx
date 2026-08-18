@@ -1,10 +1,8 @@
 import { useNavigate } from 'react-router'
-import video1 from '../assets/motion/caats/box.mp4'
-import video2 from '../assets/motion/caats/yuni.mp4'
-import video3 from '../assets/motion/caats/Téléphone.mp4'
-import box from '../assets/motion/caats/box190.png'
+import video1 from '../assets/motion/marci/01/Cursor.mp4'
 
-function Caats() {
+
+function Marci() {
   const navigate = useNavigate()
 
   return (
@@ -13,18 +11,18 @@ function Caats() {
 
         {/* Titre */}
         <h1 className="text-4xl md:text-9xl font-bold mb-4 md:mb-20">
-          Caats
+          Marci
         </h1>
 
 {/* Video */}
-<div className="relative pb-[56.25%] rounded-xl overflow-hidden md:mb-8">
+<div className="relative aspect-[9/16] md:aspect-video rounded-xl overflow-hidden md:mb-8">
   <iframe
-    src="https://player.vimeo.com/video/1214221301?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+    src="https://player.vimeo.com/video/1218330011?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     frameBorder="0"
     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
     referrerPolicy="strict-origin-when-cross-origin"
     className="absolute top-0 left-0 w-full h-full rounded-xl"
-    title="BrandSearch"
+    title="Marci"
     allowFullScreen
   />
 </div>
@@ -37,24 +35,24 @@ function Caats() {
           <section className="flex flex-col gap-8 md:gap-16">
             <section>
               <p className="text-base md:text-xl">Client</p>
-              <p className="text-2xl md:text-4xl font-bold">Maatso</p>
+              <p className="text-2xl md:text-4xl font-bold">Marci</p>
             </section>
             <section>
               <p className="text-base md:text-xl">Services</p>
-              <p className="text-2xl md:text-4xl font-bold">Motion, Animation 3D, Sound Design</p>
+              <p className="text-2xl md:text-4xl font-bold">Motion, Sound Design</p>
             </section>
           </section>
-          <section className="text-base font-semibold md:w-2/5 md:text-2xl">
+          <section className="text-base  font-semibold md:w-2/5 md:text-2xl">
             <p>
-              Caats est une marque de croquettes pour chats qui prend soin de la planète et des chats grâce à des menus personnalisés selon les besoins de chaque chat.
-              Nous avons réalisé une vidéo pour la collaboration commerciale entre le youtubeur maatso et la marque de croquette Caats.
+              Marci est un site qui référence les vêtements et accessoires de mode, il permet aux utilisateurs de découvrir de nouvelles marques.
+              J'ai réalisé plusieurs motion design pour présenter les différentes marques, styles vestimentaires et accessoires de mode disponibles sur le site.
             </p>
           </section>
         </section>
 
 
 {/* Grille médias */}
-<div className="flex flex-col md:grid grid-cols-2 grid-rows-2 gap-6 md:gap-8 py-10">
+<div className="flex flex-col md:grid grid-cols-3 grid-rows-1 gap-6 md:gap-8 py-10">
   <video
     className="w-full h-full rounded-xl object-cover"
     src={video1}
@@ -63,7 +61,7 @@ function Caats() {
     muted
     playsInline
   />
-
+{/* 
   <video
     className="w-full h-full rounded-xl object-cover"
     src={video2}
@@ -84,7 +82,7 @@ function Caats() {
     src={box}
     alt="Styleframe 2"
     className="w-full h-full hidden md:block rounded-xl object-cover"
-  />
+  /> */}
 </div>
 
 
@@ -102,4 +100,4 @@ function Caats() {
 
 
 
-export default Caats
+export default Marci

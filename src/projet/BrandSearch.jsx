@@ -46,13 +46,13 @@ function BrandSearch() {
             </section>
             <section>
               <p className="text-base md:text-xl">Services</p>
-              <p className="text-2xl md:text-4xl font-bold">Motion, Animation 2D, Sound Design</p>
+              <p className="text-2xl md:text-4xl font-bold">Motion, Sound Design</p>
             </section>
           </section>
           <section className="text-base font-semibold md:w-2/5 md:text-2xl">
             <p>
-              Brandsearch est une plateforme de veille stratégique qui surveille en temps réel les mentions de votre marque, concurrents et mots-clés sur le web et les réseaux sociaux. Son interface intuitive permet aux équipes marketing et communication de réagir rapidement aux tendances et opportunités.
-              Nous avons réalisé un motion design pour présenter sa nouvelle fonctionnalité “Alert”, reprenant l’identité visuelle du site avec des animations fluides et modernes.
+              Brandsearch est une plateforme de veille stratégique qui surveille en temps réel les mentions de votre marque, concurrents et mots-clés sur le web et les réseaux sociaux.‎ ‎ ‎   
+              J'ai réalisé un motion design pour présenter sa nouvelle fonctionnalité “Alert”.
             </p>
           </section>
         </section>

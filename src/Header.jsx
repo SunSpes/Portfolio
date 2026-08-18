@@ -4,6 +4,7 @@ import { useNavigate, useLocation, Routes, Route } from 'react-router-dom'
 import Home from './home.jsx'
 import Montage from './montage.jsx'
 import MotionDesign from './motiondesign.jsx'
+import Contact from './contact.jsx'
 import { projects } from './projectsData.js'
 
 function Header() {
@@ -65,6 +66,12 @@ function Header() {
         >
           MONTAGE
         </button>
+        <button
+          onClick={() => goTo('/contact')}
+          className={`${isHome ? 'text-white drop-shadow-lg' : 'text-gray-200'} hover:text-pink-400 py-1 px-8 transition-all duration-300 ease-in-out hover:scale-110`}
+        >
+          CONTACT
+        </button>
         {!isHome && (
           <button
             onClick={toggleTheme}
@@ -112,6 +119,12 @@ function Header() {
         >
           Montage
         </button>
+                <button
+          className="border bg-clip-text bg-gradient-to-r from-pink-500 to-pink-300 bg-text backdrop-blur-md rounded-full pb-2 pt-1  px-8"
+          onClick={() => goTo('/contact')}
+        >
+          Contact
+        </button>
 
         <p className="hidden md:block text-white text-lg mt-4">SUNSPES</p>
       </div>
@@ -136,6 +149,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/montage" element={<Montage />} />
           <Route path="/motion-design" element={<MotionDesign />} />
+          <Route path="/contact" element={<Contact />} />
           {projects.map((project) => (
             <Route key={project.id} path={project.path} element={<project.component />} />
           ))}

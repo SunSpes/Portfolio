@@ -1,10 +1,9 @@
 import { useNavigate } from 'react-router'
-import video1 from '../assets/motion/caats/box.mp4'
-import video2 from '../assets/motion/caats/yuni.mp4'
-import video3 from '../assets/motion/caats/Téléphone.mp4'
-import box from '../assets/motion/caats/box190.png'
+import video1 from '../assets/motion/sacha/01Motion.mp4'
+import video2 from '../assets/motion/sacha/02Motion.mp4'
+import video3 from '../assets/motion/sacha/03Motion.mp4'
 
-function Caats() {
+function Intro() {
   const navigate = useNavigate()
 
   return (
@@ -13,13 +12,13 @@ function Caats() {
 
         {/* Titre */}
         <h1 className="text-4xl md:text-9xl font-bold mb-4 md:mb-20">
-          Caats
+          Sacha I Cypher
         </h1>
 
 {/* Video */}
 <div className="relative pb-[56.25%] rounded-xl overflow-hidden md:mb-8">
   <iframe
-    src="https://player.vimeo.com/video/1214221301?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+    src="https://player.vimeo.com/video/1219179803?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     frameBorder="0"
     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
     referrerPolicy="strict-origin-when-cross-origin"
@@ -37,7 +36,7 @@ function Caats() {
           <section className="flex flex-col gap-8 md:gap-16">
             <section>
               <p className="text-base md:text-xl">Client</p>
-              <p className="text-2xl md:text-4xl font-bold">Maatso</p>
+              <p className="text-2xl md:text-4xl font-bold">Sacha</p>
             </section>
             <section>
               <p className="text-base md:text-xl">Services</p>
@@ -46,8 +45,7 @@ function Caats() {
           </section>
           <section className="text-base font-semibold md:w-2/5 md:text-2xl">
             <p>
-              Caats est une marque de croquettes pour chats qui prend soin de la planète et des chats grâce à des menus personnalisés selon les besoins de chaque chat.
-              Nous avons réalisé une vidéo pour la collaboration commerciale entre le youtubeur maatso et la marque de croquette Caats.
+              Sacha est un Ex-trader qui a quitté la banque pour se spécialiser dans l'IA et les marchés financiers. Nous avons réalisé plusieurs intros storytelling pour ses podcast.
             </p>
           </section>
         </section>
@@ -57,7 +55,7 @@ function Caats() {
 <div className="flex flex-col md:grid grid-cols-2 grid-rows-2 gap-6 md:gap-8 py-10">
   <video
     className="w-full h-full rounded-xl object-cover"
-    src={video1}
+    src={video2}
     autoPlay
     loop
     muted
@@ -66,7 +64,7 @@ function Caats() {
 
   <video
     className="w-full h-full rounded-xl object-cover"
-    src={video2}
+    src={video1}
     autoPlay
     loop
     muted
@@ -80,11 +78,11 @@ function Caats() {
     muted
     playsInline
   />
-  <img
+  {/* <img
     src={box}
     alt="Styleframe 2"
     className="w-full h-full hidden md:block rounded-xl object-cover"
-  />
+  /> */}
 </div>
 
 
@@ -102,4 +100,4 @@ function Caats() {
 
 
 
-export default Caats
+export default Intro
