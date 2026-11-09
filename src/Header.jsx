@@ -5,7 +5,7 @@ import Home from './home.jsx'
 import Montage from './montage.jsx'
 import MotionDesign from './motiondesign.jsx'
 import Contact from './contact.jsx'
-import { projects } from './projectsData.js'
+import ProjectPage from './ProjectPage.jsx'
 
 function Header() {
   const { theme, toggleTheme } = useTheme()
@@ -149,10 +149,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/montage" element={<Montage />} />
           <Route path="/motion-design" element={<MotionDesign />} />
+          <Route path="/motion-design/:slug" element={<ProjectPage />} />
           <Route path="/contact" element={<Contact />} />
-          {projects.map((project) => (
-            <Route key={project.id} path={project.path} element={<project.component />} />
-          ))}
         </Routes>
       </div>
     </div>

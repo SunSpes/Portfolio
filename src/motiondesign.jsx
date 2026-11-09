@@ -19,15 +19,15 @@ function MotionDesign() {
       <section className="mb-8 md:mb-12">
         <p className="md:text-[16rem] text-6xl tracking-tight font-bold text-black dark:text-white">Motion Design</p>
       </section>
-      <div className="pt-4 text-black dark:text-white font-inter sm:grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-x-4">
+      <div className="pt-4 text-black dark:text-white font-inter sm:grid grid-cols-2 md:grid-cols-3 gap-x-4">
         {projects.map((project) => (
-          <div key={project.id} className="md:hover:scale-105 md:hover:drop-shadow-lg transition-all duration-300 ease-in-out">
+          <div key={project.slug} className="md:hover:scale-105 md:hover:drop-shadow-lg transition-all duration-300 ease-in-out">
             <div
-              className="w-fit flex flex-col items-start pb-6 cursor-pointer"
-              onClick={() => navigate(project.path)}
+              className="w-full flex flex-col items-start pb-6 cursor-pointer"
+              onClick={() => navigate(`/motion-design/${project.slug}`)}
             >
               <video
-                src={project.video}
+                src={project.cover}
                 autoPlay
                 loop
                 muted
@@ -36,7 +36,7 @@ function MotionDesign() {
               />
               <h1 className="text-base md:text-4xl font-bold">{project.title}</h1>
               <div className="flex flex-wrap gap-2 mt-2">
-                {project.description.split(',').map((tag, i) => {
+                {project.tags.split(',').map((tag, i) => {
                   const cleanTag = tag.trim()
                   return (
                     <span key={i} className={`${getTagColor(cleanTag)} transition-colors duration-300 text-xs font-semibold px-3 py-1 rounded-md`}>
